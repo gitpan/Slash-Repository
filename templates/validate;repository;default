@@ -1,0 +1,20 @@
+__section__
+default
+__description__
+template form to display a plugin version
+* plugin: a hash ref with the plugin info
+
+__title__
+
+__page__
+repository
+__lang__
+en_US
+__name__
+validate
+__template__
+[% IF type == 'version' %]
+<A HREF="[% constants.rootdir %]/repository.pl?op=validate&version_id=[% version_id %]&type=[% type %]">Validate</A> | <A HREF="[% constants.rootdir %]/repository.pl?op=reject&version_id=[% version_id %]&type=[% type %]">Reject</A>
+[% ELSE %]
+<A HREF="[% constants.rootdir %]/repository.pl?op=validate&plugin_id=[% plugin_id %]&type=[% type %]">Validate</A> | <A HREF="[% constants.rootdir %]/repository.pl?op=reject&plugin_id=[% plugin_id %]&type=[% type %]">Reject</A>
+[% END %]

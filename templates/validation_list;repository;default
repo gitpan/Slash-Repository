@@ -1,0 +1,45 @@
+__section__
+default
+__description__
+
+__title__
+
+__page__
+repository
+__lang__
+en_US
+__name__
+validation_list
+__template__
+[% USE Slash %]
+<TABLE BORDER=0 WIDTH="500" CELLPADDING=0 CELLSPACING=1>
+	<TR>
+		<TD>
+			<TABLE WIDTH="100%" CELLSPACING=1 BORDER=0 CELLPADDING=7>
+				<TR>
+					<TD>
+						<TABLE BORDER=0 WIDTH="100%" CELLPADDING=0 CELLSPACING=1>
+							[% FOREACH item = items %]
+								<TR>
+									<TD BGCOLOR="[% user.bg.2 %]"> 
+										<FONT SIZE="2">
+											<B><A HREF="[% env.script_name %]?op=validate_item&id=[% item.id %]&type=[% type %]">[% item.name %]</A></B>
+										</FONT>
+									</TD> 
+									<TD BGCOLOR="[% user.bg.2 %]">
+										<FONT SIZE="2">
+											<B> [% Slash.timeCalc(item.created) %] </B>
+										</FONT>
+									</TD>
+								</TR> 
+							[% END %]
+						</TABLE> 
+					</TD>
+				</TR>
+			</TABLE> 
+		</TD>
+	</TR>
+</TABLE> 
+
+__seclev__
+100

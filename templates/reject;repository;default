@@ -1,0 +1,33 @@
+__section__
+default
+__description__
+template form to enter a reject reaseon
+* plugin: a hash ref with the plugin info
+* version: a hash ref with the version info
+
+__title__
+
+__page__
+repository
+__lang__
+en_US
+__name__
+reject
+__template__
+<FORM ACTION="[% env.script_name %]" METHOD="POST">
+<INPUT TYPE="HIDDEN" NAME="op" VALUE="reject">
+<INPUT TYPE="HIDDEN" NAME="version" VALUE="[% type %]">
+[% IF type == 'version' %]
+<INPUT TYPE="HIDDEN" NAME="type" VALUE="version">
+<INPUT TYPE="HIDDEN" NAME="version_id" VALUE="[% version.version_id %]">
+The version has been rejected.<br>
+Reason to reject this version <INPUT TYPE="text" NAME="reject_reason">
+[% ELSE %]
+<INPUT TYPE="HIDDEN" NAME="type" VALUE="plugin">
+<INPUT TYPE="HIDDEN" NAME="plugin_id" VALUE="[% plugin.plugin_id %]">
+The plugin has been rejected.<br>
+Reason to reject this plugin <INPUT TYPE="text" NAME="reject_reason">
+[% END %]
+<INPUT TYPE="SUBMIT" VALUE="Save reject info">
+</FORM>
+

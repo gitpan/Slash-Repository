@@ -1,0 +1,22 @@
+__section__
+default
+__description__
+template form to search plugins
+
+__title__
+
+__page__
+repository
+__lang__
+en_US
+__name__
+search
+__template__
+<table>
+<tr><td>
+<FORM ACTION="repository.pl" METHOD=POST>
+<input type=hidden name=op value=search>
+Search plugins <input type=text name=query>
+</FORM>
+</td></tr>
+</table>

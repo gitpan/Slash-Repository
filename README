@@ -1,0 +1,24 @@
+Repository
+----------
+
+The idea for this plugin is to make a repository for all the 
+plugins (and software in general for the future) for slashcode. 
+We must plan also to support themes but
+they are more complicated to use now so for the moment, only plugins
+are supported.
+
+The fields that define a plugin entry are:
+
+- slashcode user
+- plugin name
+- plugin description
+- URL for the plugin
+- plugin version
+- plugin status: alfa, beta, release
+- plugin category
+- timestamp
+
+The idea behind this plugin is to put it in http://slashcode.com/repository.pl
+a plugin repository in order to push the plugin community.
+
+

@@ -1,0 +1,12 @@
+Do this:
+perl Makefile.pl
+make install
+
+Then copy the contents of this  directory to 
+/usr/local/slash/plugina/Slash-Repository.
+
+From that point it should install  with either
+install-slashsite or install-plugin.
+
+Have fun.
+	-Brian

@@ -1,0 +1,30 @@
+__section__
+default
+__description__
+template form to send an announce to submissions queue when a versio
+is approved
+* plugin: a hash ref with the plugin info
+* version: a hash ref with the version info
+
+__title__
+
+__page__
+repository
+__lang__
+en_US
+__name__
+version_submit
+__template__
+[% USE Slash %]
+<a href="[% constants.rootdir %]/repository.pl?op=get&plugin_id=[% plugin.plugin_id %]&version_id=[% version.version_id %]">New release aka [% version.version %]</a> for the plugin 
+<a href="[% constants.rootdir %]/repository.pl?op=get&plugin_id=[% plugin.plugin_id %]">[% plugin.name %]</a> 
+in the
+<a href="[% constants.rootdir %]/repository.pl">system repository</a>. 
+This new release has this changes: [% version.changes %]. 
+[% IF version.download %]
+You can
+<a href="[% version.download %]">download it</a> to have this new
+functionality.
+[% END %]. ¿Some new features you would love to see in the next release?
+
+

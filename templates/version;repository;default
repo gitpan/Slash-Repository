@@ -1,0 +1,36 @@
+__section__
+default
+__description__
+template form to display a plugin version
+* plugin: a hash ref with the plugin info
+
+__title__
+
+__page__
+repository
+__lang__
+en_US
+__name__
+version
+__template__
+<TABLE BGCOLOR="#000000" BORDER=0 WIDTH="100%" CELLPADDING=0 CELLSPACING=1>
+	<TR>
+		<TD>
+			<TABLE WIDTH="100%" CELLSPACING=1 BORDER=0 CELLPADDING=7 BGCOLOR="#FEFEFE">
+				<TR>
+					<TD BGCOLOR="#E6E6E6">
+						<FONT SIZE="-1">
+							<H3>Version [% version.version %]([% version.status %])</H3> <H4>([% version.approved %])</H4>
+							<H4>Download: <A HREF="[% version.download_url %]">[% version.download_url %]</A></H4>
+							<H4>ChangeLog: <A HREF="[% version.changelog_url %]">[% version.changelog_url %]</A></H4>
+							<H4>Changes:</H4>
+							<BLOCKQUOTE>
+								[% version.changes %]
+							</BLOCKQUOTE>
+						</FONT>
+					</TD>
+				</TR>
+			</TABLE>
+		</TD>
+	</TR>
+</TABLE>

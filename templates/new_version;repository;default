@@ -1,0 +1,52 @@
+__section__
+default
+__description__
+template form for insert a new version
+* version: hasref with all the information for the version
+
+__title__
+
+__page__
+repository
+__lang__
+en_US
+__name__
+new_version
+__template__
+[% USE Slash %]
+Please carefully fill out the following fields for this version
+<p>
+[% UNLESS wrapped %]
+	<FORM ACTION="[% env.script_name %]" METHOD="POST">
+	<INPUT TYPE=HIDDEN name="plugin_id" value="[% version.plugin_id %]">
+	[% IF ! version.version %]
+	<INPUT TYPE="HIDDEN" name="op" value="preview_version">
+	[% ELSIF version.version_id %]
+	<INPUT TYPE="HIDDEN" name="op" value="update_version">
+	[% ELSE %]
+	<INPUT TYPE="HIDDEN" name="op" value="create_version">
+	[% END %]
+[% END %]
+[% IF version.version_id %]
+        <INPUT TYPE="HIDDEN" name="version_id" value="[% version.version_id %]">
+[% END %]
+
+<br>
+<TABLE>
+<TR><TD>Release version:</TD><TD><INPUT TYPE="text" NAME=version VALUE="[% FILTER strip_attribute; version.version; END %]"></TD></TR>
+<TR><TD>Release status</TD><TD>[% Slash.createSelect("status", status, version.status, 1) %]</TD></TR> 
+<TR><TD>Release changes:</TD><TD><TEXTAREA name="changes" rows=5 cols=50>[% FILTER strip_attribute;  version.changes; END %]</TEXTAREA></TD></TR>
+<TR><TD>Release Download URL:</TD><TD><INPUT TYPE=text NAME="download_url" VALUE="[% FILTER strip_attribute;  version.download_url; END %]"></TD></TR>
+<TR><TD>Release Changelog URL</TD><TD><INPUT TYPE="text" NAME="changelog_url" VALUE="[% FILTER strip_attribute;  version.changelog_url; END %]"></TD></TR>
+</TABLE>
+
+[% UNLESS wrapped %]
+	[% IF ! version.version %]
+	<INPUT TYPE=SUBMIT VALUE="Preview">
+	[% ELSIF version.version_id %]
+	<INPUT TYPE=SUBMIT VALUE="Update">
+	[% ELSE %]
+	<INPUT TYPE=SUBMIT VALUE="Insert">
+	[% END %]
+	</FORM>
+[% END %]

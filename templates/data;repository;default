@@ -1,0 +1,41 @@
+__section__
+default
+__description__
+Repository for random data elements.
+
+* value = the name of the data element to retrieve
+
+Each data element may have any number of other variables.
+__title__
+
+__page__
+repository
+__lang__
+en_US
+__name__
+data
+__template__
+[% SWITCH value %]
+
+[% CASE 'error_new_plugin' %]
+	An error has ocurred in the plugin creation
+
+[% CASE 'error_new_version' %]
+	An error has ocurred in the version creation
+
+[% CASE 'plugin_not_found' %]
+	Plugin not exist
+
+[% CASE 'version_not_found' %]
+        Plugin version not exist
+
+[% CASE 'has_no_plugins' %]
+	You have no plugins in the system. 
+
+[% CASE 'announce_new_release' %]
+	New release for
+
+[% END %]
+
+__seclev__
+10000

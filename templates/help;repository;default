@@ -1,0 +1,46 @@
+__section__
+default
+__description__
+template to show the help system for the repository
+actually it not receive context info but it will
+
+__title__
+
+__page__
+repository
+__lang__
+en_US
+__name__
+help
+__template__
+<p>
+Welcome to the Repository Help system.
+<p>
+The method to insert a new entry in the system (plugin, theme ...)
+is to insert a description for the entry and the first time,
+also a description for the first release.
+<p>
+The data has to be approved by the service admin. Until a
+description and a release for the entry has been approved, the
+data will not be shown in 
+<a href="[% constants.rootdir %]/repository.pl?op=list">the 
+main entries list</a>.
+<p>
+If you change any data about a description or a release, this data
+will be unapproved until the service admin check them.
+<p>
+When you want to a announce new releases of the entry you have
+created in the past, you need only to create a new release 
+following the link in the page that shows <a href="
+[% constants.rootdir %]/repository.pl?op=mine">your plugins 
+info</a> under each plugin info.
+<p>
+When an entry is shown it is also displayed the last release for
+this entry. The entry will not be shown if it has not an approved 
+release for it.
+<p>
+If you have any doubt about the system or you think you have
+found a bug or you want new functionality not present, you 
+can contact brian@tangent.org or acs@barrapunto.com.
+<p>
+Good luck!

@@ -1,0 +1,51 @@
+__section__
+default
+__description__
+template form to display a plugin
+* plugin: a hash ref with the plugin info
+
+__title__
+
+__page__
+repository
+__lang__
+en_US
+__name__
+plugin
+__template__
+[% USE Slash %]
+<TABLE BGCOLOR="#000000" BORDER=0 WIDTH="100%" CELLPADDING=0 CELLSPACING=1>
+	<TR>
+		<TD>
+			<TABLE WIDTH="100%" CELLSPACING=1 BORDER=0 CELLPADDING=2 BGCOLOR=[% user.bg.3 %]>
+				<TR>
+					<TD BGCOLOR="[% user.bg.3 %]"> 
+						<FONT COLOR="#FFFFFF"><B>&nbsp;&nbsp;<A HREF="[% constants.rootdir %]/repository.pl?op=get&plugin_id=[% plugin.plugin_id %]"><FONT COLOR="#FFFFFF">[% plugin.name %]</FONT></A>&nbsp;</B> Version [% version.version %]([% version.status %])</FONT>
+					</TD>
+				</TR>
+			</TABLE>
+			<TABLE WIDTH="100%" CELLSPACING=1 BORDER=0 CELLPADDING=7 BGCOLOR="#FEFEFE">
+				<TR>
+					<TD BGCOLOR="#E6E6E6">
+						<FONT SIZE="-1">
+							<H4>by: [% Slash.db.getUser(plugin.uid, 'nickname') %] on [% Slash.timeCalc(plugin.updated) %] (Created : [% Slash.timeCalc(plugin.created) %])</H4>
+							<H4>Category: [% plugin.category %]</H4>
+							<H4>License: [% plugin.license %]</H4>
+							<H4>Homepage : <A HREF="[% plugin.url %]">[% plugin.url %]</A></H4>
+							<H4>Download: <A HREF="[% version.download_url %]">[% version.download_url %]</A></H4>
+							<H4>ChangeLog: <A HREF="[% version.changelog_url %]">[% version.changelog_url %]</A></H4>
+							<H4>Description of plugin:</H4>
+							<BLOCKQUOTE>
+								[% plugin.description %]
+							</BLOCKQUOTE>
+							<H4>Changes:</H4>
+							<BLOCKQUOTE>
+								[% version.changes %]
+							</BLOCKQUOTE>
+						</FONT>
+					</TD>
+				</TR>
+			</TABLE>
+		</TD>
+	</TR>
+</TABLE>

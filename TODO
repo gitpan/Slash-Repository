@@ -1,0 +1,4 @@
+* Add admin menu link with current validation info - done (acs)
+* Subscribe to mail on plugins - what is it? (acs)
+* List releases has to show the unapproved releases to the user - done (acs)
+* A new field in the DB and login with the explanation for a reject - done (acs)

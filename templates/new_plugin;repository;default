@@ -1,0 +1,47 @@
+__section__
+default
+__description__
+template form for insert a new plugin
+* plugin: hasref with all the information for the plugin
+* version : hasref with all the information for the plugin version
+
+__title__
+
+__page__
+repository
+__lang__
+en_US
+__name__
+new_plugin
+__template__
+[% USE Slash %]
+Please carefully fill out the following fields for your plugin
+<p>
+<FORM ACTION="[% env.script_name %]" METHOD="POST">
+[% IF ! plugin.name %]
+<INPUT TYPE="HIDDEN" name="op" value="preview_plugin">
+[% ELSIF plugin.plugin_id %]
+<INPUT TYPE="HIDDEN" name="op" value="update_plugin">
+<INPUT TYPE="HIDDEN" name="plugin_id" value="[% plugin.plugin_id %]">
+[% ELSE %]
+<INPUT TYPE="HIDDEN" name="op" value="create_plugin">
+[% END %]
+<br>
+<TABLE>
+<TR><TD>Plugin name:</TD><TD><INPUT TYPE=text NAME=name VALUE="[% FILTER strip_attribute; plugin.name; END %]"></TD></TR>
+<TR><TD>Description:</TD><TD><TEXTAREA name=description rows=5 cols=50>[% FILTER strip_attribute; plugin.description; END %]</TEXTAREA></TD></TR>
+<TR><TD>Home URL:</TD><TD><INPUT TYPE=text NAME=url VALUE="[% FILTER strip_attribute; plugin.url; END %]"></TD></TR>
+<TR><TD>Category</TD><TD>[% Slash.createSelect("category", category, plugin.category, 1) %]</TD></TR> 
+<TR><TD>License</TD><TD>[% Slash.createSelect("license", license, plugin.license, 1) %]</TD></TR> 
+</TABLE>
+<BR>
+[% INCLUDE new_version wrapped=1 status %]
+<BR>
+[% IF ! plugin.name %]
+<INPUT TYPE=SUBMIT VALUE="Preview">
+[% ELSIF plugin.plugin_id %]
+<INPUT TYPE=SUBMIT VALUE="Update">
+[% ELSE %]
+<INPUT TYPE=SUBMIT VALUE="Insert">
+[% END %]
+</FORM>

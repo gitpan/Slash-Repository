@@ -1,0 +1,17 @@
+__section__
+default
+__description__
+template form to display a plugin version
+* plugin: a hash ref with the plugin info
+
+__title__
+
+__page__
+repository
+__lang__
+en_US
+__name__
+version_link
+__template__
+[% USE Slash %]
+<A HREF="[% constants.rootdir %]/repository.pl?op=get&plugin_id=[% version.plugin_id %]&version_id=[% version.version_id %]">Version [% version.version %]([% version.status %])<br>
